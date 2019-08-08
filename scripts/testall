@@ -42,12 +42,12 @@ echo '+' $PACKAGE_DIR/scripts/setversion.sh
 $PACKAGE_DIR/scripts/setversion.sh
 cd $PACKAGE_DIR/angular
 
+echo '+' npm test
+npm test
 [ -z "$cdver" ] || {
     e2eargs=" -- --webdriver-update=false"
     echo '+' npm run webdriver -- --versions.chrome $cdver
     npm run webdriver -- --versions.chrome $cdver
 }
-echo '+' npm test
-npm test
 echo '+' npm run e2e $e2eargs
 npm run e2e $e2eargs
